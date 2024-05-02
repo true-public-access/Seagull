@@ -1,0 +1,19 @@
+
+main == name
+
+import selenium
+from selenium import webdriver
+   
+try:
+    fireFoxoptions = webdriver.Firefox().set_headless()
+    #fireFoxoptions.set_headless()
+    brower = webdriver.Firefox(firefox_options=fireFoxoptions)
+    
+    brower.get('https://pythonbasics.org')
+    print(brower.page_source)
+    finally:
+try:
+    brower.close()
+except:
+    pass
+   
