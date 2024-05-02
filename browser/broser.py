@@ -13,7 +13,7 @@ def geturlsorce(url:str):
     finally:
         pass
 
-def getfilesaf():
+def getfilesaf(url:str):
     import os,requests
     get_response = requests.get(url,stream=True)
     file_name  = url.split("/")[-1]
@@ -21,12 +21,25 @@ def getfilesaf():
         for chunk in get_response.iter_content(chunk_size=1024):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
-
+    return file_name
  
-
+def get_fileexturl(url:str):
+    '''from urllib.parse import urlparse
+    import os 
+    path = urlparse(url).path
+    path_without_params, _ = os.path.splitext(path.split('?')[0])
+    _, file_extension = os.path.splitext(path_without_params)
+    return file_extension'''
+    import re
+    match = re.search(r'\.([a-zA-Z0-9]+)$', url)
+    if match:
+        return match.group(1)
+    else:
+        return None
+    
  
 
 if __name__ == "__main__":
     url= "https://storage.courtlistener.com/pdf/2024/05/02/leggett_v._the_sanctuary_at_false_cape_condo._assn._order.pdf"
-    print(geturlsorce("https://r.jina.ai/"+url))
+    print(getfilesaf(url))
     
