@@ -1,14 +1,25 @@
+def get_fileexturl(url):
+    '''from urllib.parse import urlparse
+    import os 
+    path = urlparse(url).path
+    path_without_params, _ = os.path.splitext(path.split('?')[0])
+    _, file_extension = os.path.splitext(path_without_params)
+    return file_extension'''
+    import re
+    match = re.search(r'\.([a-zA-Z0-9]+)$', url)
+    if match:
+        return match.group(1)
+    else:
+        return None
+    
+def clean(input:str,extent:str):
 
 
 
-def clean(input:str):
-    import html2text
-    import codecs
-#    from usr.lib.python3 import BeautifulSoup4
-#    HtmlFile = codecs.open(input, 'r', encoding='latin-1')
-#    text = BeautifulSoup4(HtmlFile.read()).text
-    cleaned = html2text.html2text(input)
-    return cleaned 
+
+
+
+
 
 if __name__ == "__main__":
     
