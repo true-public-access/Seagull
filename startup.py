@@ -1,19 +1,28 @@
-from kivy.app import App
+import flet as ft
 
-from kivy.uix.scatter import Scatter
-from kivy.uix.label import Label
-from kivy.uix.floatlayout import FloatLayout
+def main(page):
+    def close_banner(e):
+        page.banner.open = False
+        page.update()
 
-class TutorialApp(App):
-    def build(self):
-        f = FloatLayout() #ignore error
-        s = Scatter()
-        l = Label(text="Hello!",
-                  font_size=150)
+    page.banner = ft.Banner(
+        bgcolor=ft.colors.AMBER_100,
+        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.AMBER, size=40),
+        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent BlazarKnight Seagull comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.", color=ft.colors.RED),
+        actions=[
+            ft.TextButton("Retry", on_click=close_banner),
+            ft.TextButton("Ignore", on_click=close_banner),
+            ft.TextButton("Cancel", on_click=close_banner),
+        ],
+    )
 
-        f.add_widget(s)
-        s.add_widget(l)
-        return f
+    def show_banner_click(e):
+        page.banner.open = True
+        page.update()
+
+    page.add(ft.ElevatedButton("Show Banner", on_click=show_banner_click))
+
+
 
 if __name__ == "__main__":
-    TutorialApp().run()
+    ft.app(target=main)
