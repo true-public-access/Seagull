@@ -1,3 +1,5 @@
+
+
 def can_opener_pdf(file):
     from PyPDF2 import PdfReader
 
@@ -8,6 +10,7 @@ def can_opener_pdf(file):
 
 
 def clean(input:str,extent:str):
+
     return can_opener_pdf(input)
 
 
@@ -19,4 +22,5 @@ def clean(input:str,extent:str):
 
 if __name__ == "__main__":
     
+    print(clean())
     print(clean('leggett_v._the_sanctuary_at_false_cape_condo._assn._order.pdf','pdf'))
