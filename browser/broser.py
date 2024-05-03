@@ -21,9 +21,8 @@ def getfilesaf(url:str):
         for chunk in get_response.iter_content(chunk_size=1024):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
-    return file_name
- 
-def get_fileexturl(url:str):
+
+def get_fileexturl(url):
     '''from urllib.parse import urlparse
     import os 
     path = urlparse(url).path
@@ -36,7 +35,10 @@ def get_fileexturl(url:str):
         return match.group(1)
     else:
         return None
-    
+
+    return file_name
+ 
+
  
 
 if __name__ == "__main__":
