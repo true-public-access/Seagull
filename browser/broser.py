@@ -22,7 +22,19 @@ def getfilesaf():
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
 
- 
+def get_fileexturl(url):
+    '''from urllib.parse import urlparse
+    import os 
+    path = urlparse(url).path
+    path_without_params, _ = os.path.splitext(path.split('?')[0])
+    _, file_extension = os.path.splitext(path_without_params)
+    return file_extension'''
+    import re
+    match = re.search(r'\.([a-zA-Z0-9]+)$', url)
+    if match:
+        return match.group(1)
+    else:
+        return None
 
  
 
