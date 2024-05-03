@@ -85,6 +85,7 @@ StyleCopReport.xml
 *.ipdb
 *.pgc
 *.pgd
+*.pdf
 *.rsp
 *.sbr
 *.tlb
