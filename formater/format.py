@@ -2,7 +2,6 @@
 
 def can_opener_pdf(file):
     from PyPDF2 import PdfReader
-
     reader = PdfReader(file)
     page = reader.pages[0]
     extracted_text = page.extract_text()
