@@ -5,14 +5,22 @@ def main(page):
         page.banner.open = False
         page.update()
 
+    def show_w():
+        return None
+    
+    def show_c():
+        
+
+
+
     page.banner = ft.Banner(
         bgcolor=ft.colors.AMBER_100,
-        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.AMBER, size=40),
-        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent BlazarKnight Seagull comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.", color=ft.colors.RED),
+        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.AMBER, size=80),
+        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with ABSOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.", color=ft.colors.RED,size=40),
         actions=[
-            ft.TextButton("Retry", on_click=close_banner),
-            ft.TextButton("Ignore", on_click=close_banner),
-            ft.TextButton("Cancel", on_click=close_banner),
+            ft.TextButton("show w", on_click=show_w),
+            ft.TextButton("show c", on_click=close_banner),
+            ft.TextButton("I understand and accept", on_click=close_banner),
         ],
     )
 
@@ -20,7 +28,7 @@ def main(page):
         page.banner.open = True
         page.update()
 
-    page.add(ft.ElevatedButton("Show Banner", on_click=show_banner_click))
+    show_banner_click(1)
 
 
 
