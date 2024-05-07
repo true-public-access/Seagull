@@ -16,10 +16,11 @@
 '''
 def geturlsorce(url:str):
     sorce = ["uhgfk"]
-    import selenium
+    
     from selenium import webdriver
     try:
-        brower = webdriver.Firefox()
+        
+        brower = webdriver.chrome()
         brower.get(url)
         out = str(brower.page_source)
         brower.close()
@@ -53,10 +54,17 @@ def get_fileexturl(url):
 
     return file_name
  
-
+def Findurlin(string):
+    import re
+    # findall() has been used
+    # with valid conditions for urls in string
+    regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
+    url = re.findall(regex, string)
+    return [x[0] for x in url]
  
 
 if __name__ == "__main__":
-    url= "https://storage.courtlistener.com/pdf/2024/05/02/leggett_v._the_sanctuary_at_false_cape_condo._assn._order.pdf"
-    print(getfilesaf(url))
+    url= "https://www.sec.gov/edgar/search/#/q=s-1&dateRange=all&filter_forms=S-1"
+    sorc=str(geturlsorce(url))
+    print(Findurlin(sorc))
     
