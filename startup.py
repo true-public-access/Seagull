@@ -34,23 +34,25 @@ def main(page):
         page.update()
 
     def show_w(e):
-        worent.open = True
-        worent.update()
+        woren.open = True
+        woren.update()
     
     def show_c(e):
-        return None
+        condis.open = True
+        condis.update()
 
 
 
     page.banner = ft.Banner(
         bgcolor=ft.colors.AMBER_100,
         leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.AMBER, size=80),
-        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with ABSOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.", color=ft.colors.RED,size=40),
+        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with AwarenOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.", color=ft.colors.RED,size=40),
         actions=[
             ft.TextButton("show w", on_click=show_w),
             ft.TextButton("show c", on_click=show_c),
             ft.TextButton("I understand and accept", on_click=close_banner),
         ],
+
         )
 
     def show_banner_click(e):
@@ -58,39 +60,69 @@ def main(page):
         page.update()
     
 
-# bottum baner stuff
+# bottum baner stuff waren 
 
-    def bs_dismissed(e):
+    def waren_dismissed(e):
         print("Dismissed!")
 
-    def show_bs(e):
-        worent.open = True
-        worent.update()
+    def show_waren(e):
+        woren.open = True
+        woren.update()
 
-    def close_bs(e):
-        worent.open = False
-        worent.update()
+    def close_waren(e):
+        woren.open = False
+        woren.update()
 
-    worent= ft.BottomSheet(
+    woren= ft.BottomSheet(
         ft.Container(
             ft.Column(
                 [
-                    ft.Text(os.open('/workspaces/Seagull/text_to_display/warrantyfordis').text),
-                    ft.ElevatedButton("Close and accept", on_click=close_bs),
+                 
+                    ft.Text(open('text_to_display/warrantyfordis.txt',"r").read()),
+                    ft.ElevatedButton("Close and accept", on_click=close_waren),
                 ],
                 tight=True,
             ),
-            padding=10,
+            padding=4,
         ),
         open=False,
-        on_dismiss=bs_dismissed,
+        on_dismiss=waren_dismissed,
+        is_scroll_controlled= True,
+        maintain_bottom_view_insets_padding=True,
         )
-    page.overlay.append(worent)
+    page.overlay.append(woren)
     
+    # bottum baner stuff consis 
 
-    show_banner_click(1)
+    def condis_dismissed(e):
+        print("Dismissed!")
+
+    def show_condis(e):
+        condis.open = True
+        condis.update()
+
+    def close_condis(e):
+        condisopen = False
+        condis.update()
+
+    condis= ft.BottomSheet(
+        content=ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()),text_align="center",overflow="visible"),
+        show_drag_handle=True,
+        enable_drag=True,
+        open=False,
+        on_dismiss=condis_dismissed,
+        is_scroll_controlled= True,
+        maintain_bottom_view_insets_padding=10000,
+        use_safe_area=True,
+       
+        )
+    page.overlay.append(condis)
+
+    
+    show_banner_click(2)
 
 
 
 if __name__ == "__main__":
+    print(str(open('text_to_display/condistodisplay.txt',"r").read()))
     ft.app(target=main)
