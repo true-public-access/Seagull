@@ -20,7 +20,7 @@ def geturlsorce(url:str):
     from selenium import webdriver
     try:
         
-        brower = webdriver.chrome()
+        brower = webdriver.Firefox()
         brower.get(url)
         out = str(brower.page_source)
         brower.close()
@@ -62,9 +62,23 @@ def Findurlin(string):
     url = re.findall(regex, string)
     return [x[0] for x in url]
  
+def findnumberin(i): 
+    new_data = ''.join((ch if ch in '0123456789' else ' ') for ch in i)
+    numbers = [i for i in new_data.split()]
+    return numbers
+
+
+
 
 if __name__ == "__main__":
-    url= "https://www.sec.gov/edgar/search/#/q=s-1&dateRange=all&filter_forms=S-1"
-    sorc=str(geturlsorce(url))
-    print(Findurlin(sorc))
+    url= "https://www.sec.gov/Archives/edgar/cik-lookup-data.txt"
+    name = geturlsorce(url)
+    get_fileexturl(url)
+    nums =findnumberin(str(name))
+    ciks=[i for i in nums if len(i)==10]
+    print(len(set(ciks)))
+
+        
+            
+    
     
