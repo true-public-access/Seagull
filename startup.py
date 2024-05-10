@@ -83,7 +83,7 @@ def main(page):
                 ],
                 tight=True,
             ),
-            padding=4,
+            padding=40,
         ),
         open=False,
         on_dismiss=waren_dismissed,
@@ -112,9 +112,9 @@ def main(page):
         open=False,
         on_dismiss=condis_dismissed,
         is_scroll_controlled= True,
-        maintain_bottom_view_insets_padding=10000,
+        maintain_bottom_view_insets_padding=True,
         use_safe_area=True,
-       
+        
         )
     page.overlay.append(condis)
 
