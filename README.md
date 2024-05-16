@@ -4,7 +4,8 @@
 
 Seagull is a toolset to uncage information. To put an eye in the sky that guides us through the maze of bureaucracy and over the mountains of paperwork. To give us the wings to fly and eyes to see the truth. 
 
-# why this matters 
+# Why this matters
+ This  matters because we have the duty and responsibility to challenge the the current systems of repression. we need to know our situation ender to change it. this is the way we take action.
 
 ## Technical goals 
 
