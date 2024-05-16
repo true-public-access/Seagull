@@ -10,9 +10,9 @@ Seagull is a toolset to uncage information. To put an eye in the sky that guides
 
 * searching through Public information
 
-Distilling public information into usable resources  Describing and graphing relations between public entities And within public entities
+* Distilling public information into usable resources  Describing and graphing relations between public entities And within public entities
 
-Grounding claims in publicly accessible information.
+* Grounding claims in publicly accessible information.
 
 ## Contribution help
 
