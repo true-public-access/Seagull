@@ -17,4 +17,4 @@ Grounding claims in publicly accessible information.
 ## Contribution help
 
 Check out architecture in death docks to understand the structure of the end goal
-[https://github.com/true-public-access/Seagull/tree/main/devdocs]
+https://github.com/true-public-access/Seagull/tree/main/devdocs
