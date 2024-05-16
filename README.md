@@ -18,5 +18,5 @@ Seagull is a toolset to uncage information. To put an eye in the sky that guides
 
 Contributors welcomed and needed
 
-Check out architecture in death docks to understand the structure of the end goal
+Check out architecture in dev docs to understand the structure of the end goal
 https://github.com/true-public-access/Seagull/tree/main/devdocs
