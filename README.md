@@ -2,10 +2,7 @@
 # Seagull 
 [![CodeQL](https://github.com/true-public-access/begel/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/true-public-access/begel/actions/workflows/github-code-scanning/codeql)
 
-Seagull is a toolset to uncage information. To put an eye in the sky that guides us through the maze of bureaucracy and over the mountains of paperwork. To give us the wings to fly and eyes to see the truth. 
-
-# Why this matters
- This  matters because we have the duty and responsibility to challenge the the current systems of repression. we need to know our situation ender to change it. this is the way we take action.
+I have found a problem with the current toolset for accessing public information. Such as PACER EDGAR 
 
 ## Technical goals 
 
@@ -15,9 +12,15 @@ Seagull is a toolset to uncage information. To put an eye in the sky that guides
 
 * Grounding claims in publicly accessible information 
 
+
+
+# Why this matters
+ This  matters because we have the duty and responsibility to challenge the current systems of repression. we need to know our situation ender to change it. this is the way we take action.
+
+
 ## Contribution guide 
 
-Contributors welcomed and needed
+Contributors are welcomed and needed.
 
 Check out architecture in dev docs to understand the structure of the end goal
 https://github.com/true-public-access/Seagull/tree/main/devdocs
