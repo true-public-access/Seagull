@@ -29,7 +29,7 @@ def first_start(page):
             dlg_modal.open = False
             page.update()
         
-        dlg_modal =ft.AlertDialog(
+        dlg_modal = ft.AlertDialog(
         modal=True,
         title=ft.Text("show terms and condionds nexed use"),
         content=ft.Text("Do want see this page on every startup?"),
@@ -40,7 +40,7 @@ def first_start(page):
         actions_alignment=ft.MainAxisAlignment.END,
         on_dismiss=lambda e: print("Modal dialog dismissed!"),
         )
-    
+
 
     def open_dlg_modal(e):
         page.dialog = dlg_modal
@@ -73,9 +73,7 @@ def first_start(page):
             ft.TextButton("show w", on_click=show_w),
             ft.TextButton("show c", on_click=show_c),
             ft.TextButton("I understand and accept", on_click=close_banner),
-        ],
-
-        )
+        ],)
 
     def show_banner_click(e):
         page.banner.open = True
@@ -159,7 +157,8 @@ def first_start(page):
     
     show_banner_click(2)
 
-
+def dispagest(e)
+    ft.app(target=e)
 
 if __name__ == "__main__":
     print(str(open('text_to_display/condistodisplay.txt',"r").read()))

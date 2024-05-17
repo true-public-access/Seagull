@@ -19,6 +19,11 @@ import formater.format as form
 import setings.setingsedit as seter
 import front as frt
 
+if bool(seter.rdset("showtc")):
+    frt.dispagest(frt.first_start)
+
+
+
 if __name__ == "__main__":
     from browser.broser import geturlsorce
 
