@@ -21,14 +21,36 @@
 
 import flet as ft
 import os
-def main(page):
+def first_start(page):
     
     
     
+    def close_dlg(e):
+            dlg_modal.open = False
+            page.update()
+        
+        dlg_modal =ft.AlertDialog(
+        modal=True,
+        title=ft.Text("show terms and condionds nexed use"),
+        content=ft.Text("Do want see this page on every startup?"),
+        actions=[
+            ft.TextButton("Yes", on_click=close_dlg),
+            ft.TextButton("No", on_click=close_dlg),
+        ],
+        actions_alignment=ft.MainAxisAlignment.END,
+        on_dismiss=lambda e: print("Modal dialog dismissed!"),
+        )
     
-    
-    
-    
+
+    def open_dlg_modal(e):
+        page.dialog = dlg_modal
+        dlg_modal.open = True
+        page.update()
+
+    def dontshoag(e):
+        open_dlg_modal(1)
+        
+
     def close_banner(e):
         page.banner.open = False
         page.update()
@@ -104,16 +126,32 @@ def main(page):
     def close_condis(e):
         condisopen = False
         condis.update()
+    wid= 10**400
+    cl = ft.Column(
+            spacing=10,
+            height=20000000,
+            width=20000000,
+            scroll=ft.ScrollMode.ALWAYS,
+            )
+   
+    cl.controls.append(ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read())))
 
     condis= ft.BottomSheet(
-        content=ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()),text_align="center",overflow="visible"),
+        
+        
+            
+            
+        ft.Container(cl, border=ft.border.all(1)),
+        #content=cl.controls.append(ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()))),
+        #content=ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()),overflow="visible",width=wid,data="text",max_lines=wid),
         show_drag_handle=True,
         enable_drag=True,
         open=False,
         on_dismiss=condis_dismissed,
-        is_scroll_controlled= True,
+        is_scroll_controlled= False,
         maintain_bottom_view_insets_padding=True,
         use_safe_area=True,
+        
         
         )
     page.overlay.append(condis)
@@ -125,4 +163,9 @@ def main(page):
 
 if __name__ == "__main__":
     print(str(open('text_to_display/condistodisplay.txt',"r").read()))
-    ft.app(target=main)
+    ft.app(target=first_start)
+
+
+
+
+    
