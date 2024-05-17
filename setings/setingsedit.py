@@ -1,20 +1,42 @@
 import json
+def updateset(key,new_value, *, ind=1 ):
+    
+    import json 
+    
+# first, get the absolute path to json file
+    PATH_TO_JSON = 'setings/setings.json' #  assuming same directory (but you can work your magic here with os.)
 
-# Sample JSON data
-json_data = '{"name": "Alice", "age": 30, "city": "Los Angeles"}'
+# read existing json to memory. you do this to preserve whatever existing data. 
+    with open(PATH_TO_JSON,'r') as jsonfile:
+        json_content = json.load(jsonfile)
+    
+   
 
-# Parse the JSON data
-data = json.loads(json_data)
+    json_content[key] = new_value
 
-# Specify the field key to update
-field_key = 'age'
+    with open(PATH_TO_JSON,'w') as jsonfile:
+        json.dump(json_content, jsonfile, indent=ind)
 
-# Update the specified field value
-if field_key in data:
-    data[field_key] += 1
 
-# Convert the modified data back to JSON
-modified_json = json.dumps(data)
+def rdset(key):
+    import json
+ 
+# Opening JSON file
+    with open('setings/setings.json', 'r') as openfile:
+ 
+    # Reading from json file
+        json_object = json.load(openfile)
 
-print('Before Modifying:', json_data)
-print('After Modifying:', modified_json)
+    return json_object[key]
+    
+    
+
+
+if __name__ == "__main__":
+    print(rdset('showtconstart'))
+    print(updateset('showtconstart',"False"))
+    print(rdset('showtconstart'))
+    
+
+
+

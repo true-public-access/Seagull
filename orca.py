@@ -14,7 +14,10 @@
     You should have received a copy of the GNU General Public License along
     with this program; if not, write to appblazarknight@gmail.com
 '''
-
+import browser.broser as br
+import formater.format as form
+import setings.setingsedit as seter
+import front as frt
 
 if __name__ == "__main__":
     from browser.broser import geturlsorce
