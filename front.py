@@ -21,15 +21,15 @@
 
 import flet as ft
 import os
+import setings.setingsedit as st
 def first_start(page):
     
-    
-    
     def close_dlg(e):
+            st.updateset('showtconstart',"False")
             dlg_modal.open = False
             page.update()
-        
-        dlg_modal = ft.AlertDialog(
+
+    dlg_modal = ft.AlertDialog(
         modal=True,
         title=ft.Text("show terms and condionds nexed use"),
         content=ft.Text("Do want see this page on every startup?"),
@@ -40,6 +40,11 @@ def first_start(page):
         actions_alignment=ft.MainAxisAlignment.END,
         on_dismiss=lambda e: print("Modal dialog dismissed!"),
         )
+    
+    
+   
+        
+        
 
 
     def open_dlg_modal(e):
@@ -157,11 +162,11 @@ def first_start(page):
     
     show_banner_click(2)
 
-def dispagest(e)
+def dispagest(e):
     ft.app(target=e)
 
 if __name__ == "__main__":
-    print(str(open('text_to_display/condistodisplay.txt',"r").read()))
+   
     ft.app(target=first_start)
 
 
