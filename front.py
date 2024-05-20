@@ -59,6 +59,7 @@ def first_start(page):
     def close_banner(e):
         page.banner.open = False
         page.update()
+        dontshoag(1)
 
     def show_w(e):
         woren.open = True

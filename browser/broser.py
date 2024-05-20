@@ -77,6 +77,8 @@ if __name__ == "__main__":
     nums =findnumberin(str(name))
     ciks=[i for i in nums if len(i)==10]
     print(len(set(ciks)))
+    print(ciks[50])
+
 
         
             
