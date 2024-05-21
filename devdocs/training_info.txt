@@ -1,1 +1,2 @@
-this is for training ourai
+this is for training our ai
+https://huggingface.co/datasets/monology/pile-uncopyrighted for uncopirighted data
