@@ -73,7 +73,7 @@ def first_start(page):
 
     page.banner = ft.Banner(
         bgcolor=ft.colors.AMBER_100,
-        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.blue, size=80),
+        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.BLUE, size=80),
         content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with ABSOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.", color=ft.colors.RED,size=40),
         actions=[
             ft.TextButton("show w", on_click=show_w),
