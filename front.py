@@ -159,9 +159,7 @@ def first_start(page):
         
         )
     page.overlay.append(condis)
-
-    
-        show_banner_click(2)
+    show_banner_click(2)
 
 def dispagest(e):
     ft.app(target=e)
