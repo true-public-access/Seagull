@@ -161,12 +161,25 @@ def first_start(page):
     page.overlay.append(condis)
     show_banner_click(2)
 
-def dispagest(e):
+def searchpg(page):
+    def button_clicked(e):
+        t.value = f"Textboxes values are:   '{tfaise.value}', '{tfinerse.value}'."
+        page.update()
+
+    t = ft.Text()
+    tfaise = ft.TextField(label="AI search")
+    tfinerse = ft.TextField(label="Inernet search")
+    b = ft.ElevatedButton(text="Submit", on_click=button_clicked)
+    page.add(tfaise, tfinerse,t,b)
+
+
+
+def runpage(e):
     ft.app(target=e)
 
 if __name__ == "__main__":
    
-    ft.app(target=first_start)
+    runpage(searchpg)
 
 
 
