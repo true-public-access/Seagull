@@ -67,10 +67,20 @@ def findnumberin(i):
     numbers = [i for i in new_data.split()]
     return numbers
 
+def wildwebser(term):
+    import duckduckgo_search 
+    if term != "":
+       return duckduckgo_search.DDGS().answers(keywords=term)
+    else:
+        return "error no search terms provided"
 
 
 
 if __name__ == "__main__":
+   
+    print((wildwebser("usaa cik")))
+
+    '''
     url= "https://www.sec.gov/Archives/edgar/cik-lookup-data.txt"
     name = geturlsorce(url)
     get_fileexturl(url)
@@ -78,6 +88,8 @@ if __name__ == "__main__":
     ciks=[i for i in nums if len(i)==10]
     print(len(set(ciks)))
     print(ciks[50])
+    '''
+
 
 
         
