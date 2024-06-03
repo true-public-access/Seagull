@@ -7,3 +7,4 @@ pip install re
 pip install PyPDF2
 pip install json 
 pip install duckduckgo-search
+pip install headless-firefox

@@ -22,6 +22,8 @@
 import flet as ft
 import os
 import setings.setingsedit as st
+import browser.broser as br
+
 def first_start(page):
     
     def close_dlg(e):
@@ -162,8 +164,9 @@ def first_start(page):
     show_banner_click(2)
 
 def searchpg(page):
+ 
     def button_clicked(e):
-        t.value = f"Textboxes values are:   '{tfaise.value}', '{tfinerse.value}'."
+        t.value = br.wildwebser(tfinerse.value) , tfaise.value 
         page.update()
 
     t = ft.Text()

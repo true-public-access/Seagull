@@ -77,7 +77,8 @@ def wildwebser(term):
 
 
 if __name__ == "__main__":
-   
+    
+    print("go")
     print((wildwebser("usaa cik")))
 
     '''
