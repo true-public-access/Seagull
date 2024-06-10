@@ -176,6 +176,32 @@ def searchpg(page):
     page.add(tfaise, tfinerse,t,b)
 
 def setuppage(page):
+    def button_clicked(e):
+        t.value = f"Dropdown value is:  {dd.value}"
+        page.update()
+
+    t = ft.Text("sory we cuently only support firefox")
+    b = ft.ElevatedButton(text="browser selected", on_click=button_clicked)
+    dd = ft.Dropdown(
+        label="browser",
+        hint_text="Choose your browser",
+
+        width=100,
+        options=[
+             ft.dropdown.Option("Firefox"),
+            
+            
+            #ft.dropdown.Option("Chrome"),
+            
+            #ft.dropdown.Option("Edge"),
+            #ft.dropdown.Option("Internet Explorer"),
+            #ft.dropdown.Option("safari"),
+            
+
+        ],
+    )
+    page.add(dd, b, t)
+
     
 
 
@@ -184,7 +210,7 @@ def runpage(e):
 
 if __name__ == "__main__":
    
-    runpage(searchpg)
+    runpage(setuppage)
 
 
 
