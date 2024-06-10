@@ -175,6 +175,8 @@ def searchpg(page):
     b = ft.ElevatedButton(text="Submit", on_click=button_clicked)
     page.add(tfaise, tfinerse,t,b)
 
+def setuppage(page):
+    
 
 
 def runpage(e):
