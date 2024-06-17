@@ -22,7 +22,7 @@
 import flet as ft
 import os
 import setings.setingsedit as st
-import browser.broser as br
+import browser.broser as br 
 
 def first_start(page):
     
