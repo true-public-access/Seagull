@@ -177,12 +177,14 @@ def searchpg(page):
 
 def setuppage(page):
     def button_clicked(e):
-        t.value = f"Dropdown value is:  {dd.value}"
+        t.value = f"options selected  {br.value} {uc.value}"
+        st.updateset("browser",br.value) 
+
         page.update()
 
-    t = ft.Text("sory we cuently only support firefox")
-    b = ft.ElevatedButton(text="browser selected", on_click=button_clicked)
-    dd = ft.Dropdown(
+    t = ft.Text("sory we cuently only support firefox and bascic ")
+    b = ft.ElevatedButton(text="options selected", on_click=button_clicked)
+    br = ft.Dropdown(
         label="browser",
         hint_text="Choose your browser",
 
@@ -200,7 +202,18 @@ def setuppage(page):
 
         ],
     )
-    page.add(dd, b, t)
+    uc = ft.Dropdown(
+        label="interface compexety",
+        hint_text="Choose your complexity level",
+
+        width=100,
+        options=[
+            ft.dropdown.Option("basic"),
+            ft.dropdown.Option("inermedet"),
+            ft.dropdown.Option("advansed")
+        ]
+        )
+    page.add(br,uc, b, t)
 
     
 
