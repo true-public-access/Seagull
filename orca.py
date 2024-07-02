@@ -20,7 +20,7 @@ import setings.setingsedit as seter
 import front as frt
 
 if bool(seter.rdset("showtc")):
-    frt.dispagest(frt.first_start)
+    frt.runpage(frt.first_start)
 
 
 
