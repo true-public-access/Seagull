@@ -29,13 +29,24 @@ def rdset(key):
 
     return json_object[key]
     
+def readallset():
+    keys= []
+    values=[]
+    import json
+ 
+# Opening JSON file
+    with open('setings/setings.json', 'r') as openfile:
+        jdata=json.load(openfile)
     
+        for key, value in jdata.items(): 
+            keys.append(key)
+            values.append(value) 
+    return keys,values 
+
 
 
 if __name__ == "__main__":
-    print(rdset('showtconstart'))
-    print(updateset('showtconstart',"False"))
-    print(rdset('showtconstart'))
+    print(readallset())
     
 
 

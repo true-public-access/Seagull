@@ -1,5 +1,5 @@
 {
- 
+ "browser" : "firefox",
  "setupcomp" : "False",
  "showtc" : "True"
 }
