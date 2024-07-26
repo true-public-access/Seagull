@@ -1,10 +1,7 @@
 # To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
-pip install flet 
-pip install selenium
-pip install os
-pip install requests
-pip install re
-pip install PyPDF2
-pip install json 
-pip install duckduckgo-search
-pip install headless-firefox
+flet 
+selenium
+requests
+PyPDF2
+duckduckgo-search
+headless-firefox

@@ -21,13 +21,16 @@
 
 import flet as ft
 import os
-import setings.setingsedit as st
+import settings.settings as st
 import browser.broser as br
+
+# Should be implemented differently later
+st.init_settings()
 
 def first_start(page):
     
     def close_dlg(e):
-            st.updateset('showtconstart',"False")
+            st.update_setting('showtconstart',False)
             dlg_modal.open = False
             page.update()
 
@@ -178,7 +181,7 @@ def searchpg(page):
 def setuppage(page):
     def button_clicked(e):
         t.value = f"options selected  {br.value} {uc.value}"
-        st.updateset("browser",br.value) 
+        st.update_setting("browser",br.value) 
 
         page.update()
 
