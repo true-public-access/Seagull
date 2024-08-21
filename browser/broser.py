@@ -80,7 +80,7 @@ if __name__ == "__main__":
     
     print("go")
     print((wildwebser("usaa cik")))
-
+    getfilesaf('https://firstfrc.blob.core.windows.net/frc2024/Manual/2024GameManual.pdf')
     '''
     url= "https://www.sec.gov/Archives/edgar/cik-lookup-data.txt"
     name = geturlsorce(url)
