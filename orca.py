@@ -16,10 +16,13 @@
 '''
 import browser.broser as br
 import formater.format as form
-import setings.setingsedit as seter
+import settings.settings as setter
 import front as frt
 
-if bool(seter.rdset("showtc")):
+# Should be implemented differently later
+setter.init_settings()
+
+if bool(setter.read_setting("showtc")):
     frt.dispagest(frt.first_start)
 
 
