@@ -1,4 +1,4 @@
-''' Seagull format this file defines the funtions that cleans/formats the data form the internet, 
+""" Seagull format this file defines the funtions that cleans/formats the data form the internet, 
     Copyright (C) 2024 Kai Broadbent 'BlazarKnight'
 
     This program is free software; you can redistribute it and/or modify
@@ -13,33 +13,29 @@
 
     You should have received a copy of the GNU General Public License along
     with this program; if not, write to appblazarknight@gmail.com
-'''
+"""
+
+
 def can_opener_pdf(file):
     from PyPDF2 import PdfReader
 
     reader = PdfReader(file)
     pgcont = len(reader.pages)
-    pdfasstr = ''
-    for i in range(0,pgcont):
+    pdfasstr = ""
+    for i in range(0, pgcont):
         page = reader.pages[i]
         extracted_text = page.extract_text()
         pdfasstr = pdfasstr + extracted_text
     return pdfasstr
 
-def clean(inp:str,extent:str):
 
+def clean(inp: str, extent: str):
     return can_opener_pdf(inp)
 
 
-    
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
-    
-    print(clean('/home/supercow/PycharmProjects/Seagull/browser/2024GameManual.pdf','pdf'))
+    print(
+        clean(
+            "/home/supercow/PycharmProjects/Seagull/browser/2024GameManual.pdf", "pdf"
+        )
+    )

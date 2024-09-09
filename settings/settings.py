@@ -1,4 +1,4 @@
-''' Seagull settings, file for handling loading and updating of settings.
+""" Seagull settings, file for handling loading and updating of settings.
     Copyright (C) 2024 Kai Broadbent 'BlazarKnight'
 
     This program is free software; you can redistribute it and/or modify
@@ -13,21 +13,22 @@
 
     You should have received a copy of the GNU General Public License along
     with this program; if not, write to appblazarknight@gmail.com
-'''
+"""
 
-'''
+"""
     NOTE: This file should only init the settings once. Ideally, a handler initializes
     and handles all the reads and updates for the settings. Should be close to the top
     level of the project and then the settings page is the only page that can update
     settings.
-'''
+"""
 
 import json
 import os
 from typing import Any, Dict
 
-PATH_TO_JSON = os.path.join(os.curdir ,"settings.json")
+PATH_TO_JSON = os.path.join(os.curdir, "settings.json")
 SETTINGS: Dict[str, Any]
+
 
 # === DO NOT USE THESE OUTSIDE OF THIS FILE ====================================================
 class SettingsNotFoundError(Exception):
@@ -36,12 +37,14 @@ class SettingsNotFoundError(Exception):
 
     TODO: Move to exceptions file.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.message = message
 
     def __str__(self):
         return f"SettingsNotFoundError: {self.message}"
+
 
 def _dump_settings() -> None:
     """
@@ -57,9 +60,10 @@ def _dump_settings() -> None:
         with open(PATH_TO_JSON, "w") as file:
             json.dump(SETTINGS, file, indent=4)
 
-            print("Settings saved.")                # Update these to use logging library
+            print("Settings saved.")  # Update these to use logging library
     except IOError as e:
         print(f"IO Error while saving settings: {e}")
+
 
 # === PUBLIC METHODS =============================================================================
 def init_settings() -> None:
@@ -74,13 +78,16 @@ def init_settings() -> None:
             SETTINGS = contents
 
     except json.JSONDecodeError as e:
-        print(f"Error decoding JSON: {e}")          # Update these to use logging library
+        print(f"Error decoding JSON: {e}")  # Update these to use logging library
     except FileNotFoundError:
-        print(f"File '{PATH_TO_JSON}' not found.")  # Update these to use logging library
+        print(
+            f"File '{PATH_TO_JSON}' not found."
+        )  # Update these to use logging library
     except TypeError as e:
-        print(f"Invalid file type: {e}")            # Update these to use logging library
+        print(f"Invalid file type: {e}")  # Update these to use logging library
     except IOError as e:
-        print(f"IO Error: {e}")                     # Update these to use logging library
+        print(f"IO Error: {e}")  # Update these to use logging library
+
 
 def update_setting(key: str, value: Any) -> None:
     """
@@ -88,9 +95,10 @@ def update_setting(key: str, value: Any) -> None:
     """
     if not SETTINGS:
         raise SettingsNotFoundError("'SETTINGS' is empty or not initialized.")
-    
+
     SETTINGS[key] = value
     _dump_settings()
+
 
 def read_setting(key: str) -> Any:
     """
@@ -98,8 +106,9 @@ def read_setting(key: str) -> Any:
     """
     if not SETTINGS:
         raise SettingsNotFoundError("'SETTINGS' is empty or not initialized.")
-    
+
     return SETTINGS.get(key, None)
+
 
 if __name__ == "__main__":
     init_settings()

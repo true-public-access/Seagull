@@ -1,4 +1,4 @@
-''' Seagull statup this file is run at the start of the program to outline terms and conditions, 
+""" Seagull statup this file is run at the start of the program to outline terms and conditions, 
     Copyright (C) 2024 Kai Broadbent 'BlazarKnight'
 
     This program is free software; you can redistribute it and/or modify
@@ -13,10 +13,7 @@
 
     You should have received a copy of the GNU General Public License along
     with this program; if not, write to appblazarknight@gmail.com
-    '''
-
-
-
+    """
 
 
 import flet as ft
@@ -27,12 +24,12 @@ import browser.broser as br
 # Should be implemented differently later
 st.init_settings()
 
+
 def first_start(page):
-    
     def close_dlg(e):
-            st.update_setting('showtconstart',False)
-            dlg_modal.open = False
-            page.update()
+        st.update_setting("showtconstart", False)
+        dlg_modal.open = False
+        page.update()
 
     dlg_modal = ft.AlertDialog(
         modal=True,
@@ -44,13 +41,7 @@ def first_start(page):
         ],
         actions_alignment=ft.MainAxisAlignment.END,
         on_dismiss=lambda e: print("Modal dialog dismissed!"),
-        )
-    
-    
-   
-        
-        
-
+    )
 
     def open_dlg_modal(e):
         page.dialog = dlg_modal
@@ -59,7 +50,6 @@ def first_start(page):
 
     def dontshoag(e):
         open_dlg_modal(1)
-        
 
     def close_banner(e):
         page.banner.open = False
@@ -69,29 +59,31 @@ def first_start(page):
     def show_w(e):
         woren.open = True
         woren.update()
-    
+
     def show_c(e):
         condis.open = True
         condis.update()
 
-
-
     page.banner = ft.Banner(
         bgcolor=ft.colors.AMBER_100,
         leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.BLUE, size=80),
-        content=ft.Text("Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with ABSOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.", color=ft.colors.RED,size=40),
+        content=ft.Text(
+            "Seagull version 1, Copyright (C) 2024 Kai Broadbent 'BlazarKnight' Seagull comes with ABSOLUTELY NO WARRANTY; for details hit `show w'. This is free software, and you are welcome to redistribute it under certain conditions; hit `show c' for details.",
+            color=ft.colors.RED,
+            size=40,
+        ),
         actions=[
             ft.TextButton("show w", on_click=show_w),
             ft.TextButton("show c", on_click=show_c),
             ft.TextButton("I understand and accept", on_click=close_banner),
-        ],)
+        ],
+    )
 
     def show_banner_click(e):
         page.banner.open = True
         page.update()
-    
 
-# bottum baner stuff waren 
+    # bottum baner stuff waren
 
     def waren_dismissed(e):
         print("Dismissed!")
@@ -104,12 +96,11 @@ def first_start(page):
         woren.open = False
         woren.update()
 
-    woren= ft.BottomSheet(
+    woren = ft.BottomSheet(
         ft.Container(
             ft.Column(
                 [
-                 
-                    ft.Text(open('text_to_display/warrantyfordis.txt',"r").read()),
+                    ft.Text(open("text_to_display/warrantyfordis.txt", "r").read()),
                     ft.ElevatedButton("Close and accept", on_click=close_waren),
                 ],
                 tight=True,
@@ -118,12 +109,12 @@ def first_start(page):
         ),
         open=False,
         on_dismiss=waren_dismissed,
-        is_scroll_controlled= True,
+        is_scroll_controlled=True,
         maintain_bottom_view_insets_padding=True,
-        )
+    )
     page.overlay.append(woren)
-    
-    # bottum baner stuff consis 
+
+    # bottum baner stuff consis
 
     def condis_dismissed(e):
         print("Dismissed!")
@@ -135,53 +126,51 @@ def first_start(page):
     def close_condis(e):
         condisopen = False
         condis.update()
-    wid= 10**400
-    cl = ft.Column(
-            spacing=10,
-            height=20000000,
-            width=20000000,
-            scroll=ft.ScrollMode.ALWAYS,
-            )
-   
-    cl.controls.append(ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read())))
 
-    condis= ft.BottomSheet(
-        
-        
-            
-            
+    wid = 10**400
+    cl = ft.Column(
+        spacing=10,
+        height=20000000,
+        width=20000000,
+        scroll=ft.ScrollMode.ALWAYS,
+    )
+
+    cl.controls.append(
+        ft.Text(str(open("text_to_display/condistodisplay.txt", "r").read()))
+    )
+
+    condis = ft.BottomSheet(
         ft.Container(cl, border=ft.border.all(1)),
-        #content=cl.controls.append(ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()))),
-        #content=ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()),overflow="visible",width=wid,data="text",max_lines=wid),
+        # content=cl.controls.append(ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()))),
+        # content=ft.Text(str(open('text_to_display/condistodisplay.txt',"r").read()),overflow="visible",width=wid,data="text",max_lines=wid),
         show_drag_handle=True,
         enable_drag=True,
         open=False,
         on_dismiss=condis_dismissed,
-        is_scroll_controlled= False,
+        is_scroll_controlled=False,
         maintain_bottom_view_insets_padding=True,
         use_safe_area=True,
-        
-        
-        )
+    )
     page.overlay.append(condis)
     show_banner_click(2)
 
+
 def searchpg(page):
- 
     def button_clicked(e):
-        t.value = br.wildwebser(tfinerse.value) , tfaise.value 
+        t.value = br.wildwebser(tfinerse.value), tfaise.value
         page.update()
 
     t = ft.Text()
     tfaise = ft.TextField(label="AI search")
     tfinerse = ft.TextField(label="Inernet search")
     b = ft.ElevatedButton(text="Submit", on_click=button_clicked)
-    page.add(tfaise, tfinerse,t,b)
+    page.add(tfaise, tfinerse, t, b)
+
 
 def setuppage(page):
     def button_clicked(e):
         t.value = f"options selected  {br.value} {uc.value}"
-        st.update_setting("browser",br.value) 
+        st.update_setting("browser", br.value)
 
         page.update()
 
@@ -190,45 +179,31 @@ def setuppage(page):
     br = ft.Dropdown(
         label="browser",
         hint_text="Choose your browser",
-
         width=100,
         options=[
-             ft.dropdown.Option("Firefox"),
-            
-            
-            #ft.dropdown.Option("Chrome"),
-            
-            #ft.dropdown.Option("Edge"),
-            #ft.dropdown.Option("Internet Explorer"),
-            #ft.dropdown.Option("safari"),
-            
-
+            ft.dropdown.Option("Firefox"),
+            # ft.dropdown.Option("Chrome"),
+            # ft.dropdown.Option("Edge"),
+            # ft.dropdown.Option("Internet Explorer"),
+            # ft.dropdown.Option("safari"),
         ],
     )
     uc = ft.Dropdown(
         label="interface compexety",
         hint_text="Choose your complexity level",
-
         width=100,
         options=[
             ft.dropdown.Option("basic"),
             ft.dropdown.Option("inermedet"),
-            ft.dropdown.Option("advansed")
-        ]
-        )
-    page.add(br,uc, b, t)
-
-    
+            ft.dropdown.Option("advansed"),
+        ],
+    )
+    page.add(br, uc, b, t)
 
 
 def runpage(e):
     ft.app(target=e)
 
+
 if __name__ == "__main__":
-   
     runpage(setuppage)
-
-
-
-
-    
