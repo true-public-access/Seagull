@@ -23,4 +23,4 @@ I have found a problem with the current toolset for accessing and understanding 
 Contributors are welcomed and needed.
 
 Check out architecture in dev docs to understand the structure of the end goal
-https://github.com/true-public-access/Seagull/tree/main/devdocs
+https://github.com/true-public-access/Seagull/blob/main/devdocs/contributers_readme.md
